@@ -3,7 +3,7 @@ package Rooms;
 import People.Person;
 public class MainRoom {
 
-        Person occupant;
+        Person[] occupant = new Person[2];
 
         int xLoc,yLoc;
 
@@ -12,7 +12,10 @@ public class MainRoom {
             xLoc = x;
             yLoc = y;
         }
-
+        public Person[] getOccupants()
+        {
+            return occupant;
+        }
         /**
          * Method controls the results when a person enters this room.
          * @param x the Person entering
@@ -31,8 +34,13 @@ public class MainRoom {
          */
         public void leaveRoom(Person x)
         {
-            occupant = null;
+            for(int i =0; i< occupant.length; i++)
+            {
+                if(occupant[i] == x)
+                occupant[i] = null;
+            }
         }
+
 
     }
 

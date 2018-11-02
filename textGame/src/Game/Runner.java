@@ -5,6 +5,8 @@ import People.Person;
 import People.Chaser;
 import Rooms.MainRoom;
 import Rooms.WinningRoom;
+import sun.applet.Main;
+
 public class Runner {
 
 
@@ -121,6 +123,7 @@ public class Runner {
         }
         public static void gameOff()
         {
+            if(MainRoom.found())
             gameOn = false;
         }
 
