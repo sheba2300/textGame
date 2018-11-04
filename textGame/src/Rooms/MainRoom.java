@@ -22,10 +22,19 @@ public class MainRoom {
          */
         public void enterRoom(Person x)
         {
-            System.out.println("You enter a plain old room");
-            occupant = x;
-            x.setxLoc(this.xLoc);
-            x.setyLoc(this.yLoc);
+            System.out.println("Now where did the turkey go....");
+            for(int i = 0; i<occupant.length;i++)
+            {
+                if(occupant[i] == null && occupant[i] == x)
+                {
+                    occupant[i] = x;
+                    x.setxLoc(this.xLoc);
+                    x.setyLoc(this.yLoc);
+                    return;
+                }
+            }
+            return;
+
         }
 
         /**
@@ -39,6 +48,12 @@ public class MainRoom {
                 if(occupant[i] == x)
                 occupant[i] = null;
             }
+        }
+        public boolean found()
+        {
+            if(occupant[0] != null && occupant[1] != null)
+                return true;
+            return false;
         }
 
 

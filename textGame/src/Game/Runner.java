@@ -5,7 +5,6 @@ import People.Person;
 import People.Chaser;
 import Rooms.MainRoom;
 import Rooms.WinningRoom;
-import sun.applet.Main;
 
 public class Runner {
 
@@ -62,18 +61,18 @@ public class Runner {
          * Checks that the movement chosen is within the valid game map.
          * @param move the move chosen
          * @param p person moving
-         * @param map the 2D array of rooms
+         * @param building the 2D array of rooms
          * @return
          */
-        public static boolean validMove(String move, Person p, Room[][] map)
+        public static boolean validMove(String move, Person p, MainRoom[][] building)
         {
             move = move.toLowerCase().trim();
             switch (move) {
                 case "n":
                     if (p.getxLoc() > 0)
                     {
-                        map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                        map[p.getxLoc()-1][p.getyLoc()].enterRoom(p);
+                        building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                        building[p.getxLoc()-1][p.getyLoc()].enterRoom(p);
                         return true;
                     }
                     else
@@ -81,10 +80,10 @@ public class Runner {
                         return false;
                     }
                 case "e":
-                    if (p.getyLoc()< map[p.getyLoc()].length -1)
+                    if (p.getyLoc()< building[p.getyLoc()].length -1)
                     {
-                        map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                        map[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
+                        building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                        building[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
                         return true;
                     }
                     else
@@ -93,10 +92,10 @@ public class Runner {
                     }
 
                 case "s":
-                    if (p.getxLoc() < map.length - 1)
+                    if (p.getxLoc() < building.length - 1)
                     {
-                        map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                        map[p.getxLoc()+1][p.getyLoc()].enterRoom(p);
+                        building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                        building[p.getxLoc()+1][p.getyLoc()].enterRoom(p);
                         return true;
                     }
                     else
@@ -107,8 +106,8 @@ public class Runner {
                 case "w":
                     if (p.getyLoc() > 0)
                     {
-                        map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                        map[p.getxLoc()][p.getyLoc()-1].enterRoom(p);
+                        building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
+                        building[p.getxLoc()][p.getyLoc()-1].enterRoom(p);
                         return true;
                     }
                     else
@@ -121,7 +120,7 @@ public class Runner {
             }
             return true;
         }
-        public static void gameOff()
+        public void gameOff()
         {
             if(MainRoom.found())
             gameOn = false;
