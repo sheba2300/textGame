@@ -11,7 +11,7 @@ public class Runner {
 
         private static boolean gameOn = true;
 
-        public static void main(String[] args)
+        public void main(String[] args)
         {
             String playerName = "";
             String turkeyName = "";
@@ -122,7 +122,7 @@ public class Runner {
         }
         public void gameOff()
         {
-            if(MainRoom.found())
+            if(MainRoom.found(MainRoom.getOccupants()))
             gameOn = false;
         }
 

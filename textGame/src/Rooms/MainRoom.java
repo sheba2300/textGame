@@ -2,8 +2,7 @@ package Rooms;
 
 import People.Person;
 public class MainRoom {
-
-        Person[] occupant = new Person[2];
+    Person[] occupant = new Person[2];
 
         int xLoc,yLoc;
 
@@ -49,7 +48,7 @@ public class MainRoom {
                 occupant[i] = null;
             }
         }
-        public boolean found()
+        public static boolean found(Person[] occupant)
         {
             if(occupant[0] != null && occupant[1] != null)
                 return true;
