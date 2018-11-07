@@ -20,7 +20,7 @@ public class ChaserRoom implements Rooms{
 
         public String enterRoom(Chaser x, ChaserRoom[][] y)
         {
-            String turkeyAction = "";
+            String turkeyAction;
             chance = (int) Math.random() * 4 + 1;
             if (chance == 1) {
                 yLoc = yLoc +1;

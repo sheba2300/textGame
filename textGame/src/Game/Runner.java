@@ -47,13 +47,13 @@ public class Runner {
                 if(validMove(move, player, building))
                 {
                     System.out.println("Your coordinates: row = " + player.getxLoc() + " col = " + player.getyLoc());
-                    turkeyName + " moved 1 space " + turkeyRoom.enterRoom(turkey, turkeyRoom);
+                    System.out.println(turkeyName + " moved 1 space " +turkeyRoom[turkey.getxLoc()][turkey.getyLoc()].enterRoom(turkey, turkeyRoom));
                 }
                 else {
                     System.out.println("Please choose a valid move.");
                 }
 
-                if (building.found(building[player.getxLoc()][player.getyLoc()].getOccupants()))
+                if (building[player.getxLoc()][player.getyLoc()].found(building[player.getxLoc()][player.getyLoc()].getOccupants()))
                     gameOn = false;
 
             }

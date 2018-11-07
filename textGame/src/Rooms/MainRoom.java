@@ -21,7 +21,7 @@ public class MainRoom implements Rooms{
          * Method controls the results when a person enters this room.
          * @param x the Person entering
          */
-        public void enterRoom(Person x)
+        public String enterRoom(Person x)
         {
             System.out.println("Now where did the turkey go....");
             for(int i = 0; i<occupant.length;i++)
@@ -31,11 +31,10 @@ public class MainRoom implements Rooms{
                     x.setxLoc(this.xLoc);
                     x.setyLoc(this.yLoc);
                     occupant[i] = x;
-                    return;
+                    return "";
                 }
             }
-            return;
-
+            return "";
         }
 
         /**
