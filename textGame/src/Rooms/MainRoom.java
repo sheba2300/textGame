@@ -13,7 +13,7 @@ public class MainRoom implements Rooms{
             xLoc = x;
             yLoc = y;
         }
-        public Person[] getOccupants()
+        public Characters[] getOccupants()
         {
             return occupant;
         }

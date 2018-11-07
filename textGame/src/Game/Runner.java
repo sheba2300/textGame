@@ -53,6 +53,8 @@ public class Runner {
                     System.out.println("Please choose a valid move.");
                 }
 
+                if (building.found(building[player.getxLoc()][player.getyLoc()].getOccupants()))
+                    gameOn = false;
 
             }
             in.close();
@@ -108,9 +110,6 @@ public class Runner {
             }
             return true;
 
-
-            if (building.found(MainRoom[player.getxlox()].getOccupants()))
-                gameOn = false;
 
         }
 
