@@ -11,7 +11,7 @@ public class Runner {
 
         private static boolean gameOn = true;
 
-        public void main(String[] args)
+        public static void main(String[] args)
         {
             String playerName = "";
             String turkeyName = "";

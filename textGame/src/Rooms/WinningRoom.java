@@ -14,8 +14,8 @@ public class WinningRoom extends MainRoom
      * @param x the Person entering
      */
     @Override
-    public void enterRoom(Person x) {
-        System.out.println("You won, Congrats!");
+    public String enterRoom(Person x) {
+        return("You won, Congrats!");
     }
 
 
