@@ -5,7 +5,7 @@ import People.Person;
 import People.Chaser;
 import Rooms.MainRoom;
 import Rooms.WinningRoom;
-
+import Rooms.ChaserRoom;
 public class Runner {
 
 
@@ -16,6 +16,7 @@ public class Runner {
             String playerName = "";
             String turkeyName = "";
             MainRoom[][] building = new MainRoom[5][5];
+            ChaserRoom[][] turkeyRoom = new ChaserRoom[5][5];
 
             //Fill the building with normal rooms
             for (int x = 0; x<building.length; x++)
@@ -34,19 +35,19 @@ public class Runner {
             System.out.println("Enter the name of the turkey that will be chasing you.");
             turkeyName = input.nextLine();
             //Setup player 1 and the input scanner
-            Person player1 = new Person(playerName, 0,0);
-            Chaser Turkey = new Chaser(turkeyName,0,4);
+            Person player = new Person(playerName, 0,0);
+            Chaser turkey = new Chaser(turkeyName,0,4);
 
-            building[0][0].enterRoom(player1);
+            building[0][0].enterRoom(player);
             Scanner in = new Scanner(System.in);
             while(gameOn)
             {
                 System.out.println("Where would you like to move? (Choose N, S, E, W)");
                 String move = in.nextLine();
-                if(validMove(move, player1, building))
+                if(validMove(move, player, building))
                 {
-                    System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-
+                    System.out.println("Your coordinates: row = " + player.getxLoc() + " col = " + player.getyLoc());
+                    turkeyName + " moved 1 space " + turkeyRoom.enterRoom(turkey, turkeyRoom);
                 }
                 else {
                     System.out.println("Please choose a valid move.");
@@ -64,54 +65,41 @@ public class Runner {
          * @param building the 2D array of rooms
          * @return
          */
-        public static boolean validMove(String move, Person p, MainRoom[][] building)
-        {
+        public static boolean validMove(String move, Person p, MainRoom[][] building) {
             move = move.toLowerCase().trim();
             switch (move) {
                 case "n":
-                    if (p.getxLoc() > 0)
-                    {
+                    if (p.getxLoc() > 0) {
                         building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                        building[p.getxLoc()-1][p.getyLoc()].enterRoom(p);
+                        building[p.getxLoc() - 1][p.getyLoc()].enterRoom(p);
                         return true;
-                    }
-                    else
-                    {
+                    } else {
                         return false;
                     }
                 case "e":
-                    if (p.getyLoc()< building[p.getyLoc()].length -1)
-                    {
+                    if (p.getyLoc() < building[p.getyLoc()].length - 1) {
                         building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
                         building[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
                         return true;
-                    }
-                    else
-                    {
+                    } else {
                         return false;
                     }
 
                 case "s":
-                    if (p.getxLoc() < building.length - 1)
-                    {
+                    if (p.getxLoc() < building.length - 1) {
                         building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                        building[p.getxLoc()+1][p.getyLoc()].enterRoom(p);
+                        building[p.getxLoc() + 1][p.getyLoc()].enterRoom(p);
                         return true;
-                    }
-                    else
-                    {
+                    } else {
                         return false;
                     }
 
                 case "w":
-                    if (p.getyLoc() > 0)
-                    {
+                    if (p.getyLoc() > 0) {
                         building[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-                        building[p.getxLoc()][p.getyLoc()-1].enterRoom(p);
+                        building[p.getxLoc()][p.getyLoc() - 1].enterRoom(p);
                         return true;
-                    }
-                    else
-                    {
+                    } else {
                         return false;
                     }
                 default:
@@ -119,12 +107,11 @@ public class Runner {
 
             }
             return true;
-        }
-        public void gameOff()
-        {
-            if(MainRoom.found(MainRoom.getOccupants()))
-            gameOn = false;
-        }
 
+
+            if (building.found(MainRoom[player.getxlox()].getOccupants()))
+                gameOn = false;
+
+        }
 
 }

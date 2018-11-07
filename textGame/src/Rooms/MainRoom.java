@@ -1,7 +1,9 @@
 package Rooms;
 
 import People.Person;
-public class MainRoom {
+import People.Characters;
+
+public class MainRoom implements Rooms{
     Person[] occupant = new Person[2];
 
         int xLoc,yLoc;
@@ -24,11 +26,11 @@ public class MainRoom {
             System.out.println("Now where did the turkey go....");
             for(int i = 0; i<occupant.length;i++)
             {
-                if(occupant[i] == null && occupant[i] == x)
+                if(occupant[i] == null || occupant[i] == x)
                 {
-                    occupant[i] = x;
                     x.setxLoc(this.xLoc);
                     x.setyLoc(this.yLoc);
+                    occupant[i] = x;
                     return;
                 }
             }
@@ -48,7 +50,7 @@ public class MainRoom {
                 occupant[i] = null;
             }
         }
-        public static boolean found(Person[] occupant)
+        public static boolean found(Characters[] occupant)
         {
             if(occupant[0] != null && occupant[1] != null)
                 return true;

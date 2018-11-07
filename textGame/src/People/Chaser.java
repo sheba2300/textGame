@@ -1,6 +1,7 @@
 package People;
 
-public class Chaser extends Characters {
+public class Chaser extends Characters
+{
     private String firstName;
     private int xLoc;
     private int yLoc;
