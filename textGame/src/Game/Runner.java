@@ -54,7 +54,7 @@ public class Runner {
                     System.out.println("Your coordinates: row = " + player.getxLoc() + " col = " + player.getyLoc());
                     System.out.println("The turkey was located at " +turkey.getxLoc() +","+turkey.getyLoc());
 
-                    System.out.println(turkeyName + " moved 1 space " +turkeyRoom[turkey.getxLoc()][turkey.getyLoc()].enterRoom(turkey, turkeyRoom));
+                   System.out.println(turkeyName + " moved 1 space " +turkeyRoom[turkey.getxLoc()][turkey.getyLoc()].enterRoom(turkey,turkeyRoom));
                 }
                 else {
                     System.out.println("Please choose a valid move.");

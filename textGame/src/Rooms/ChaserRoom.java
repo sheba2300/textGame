@@ -110,7 +110,6 @@ public class ChaserRoom implements Rooms{
             case "e":
                 if (p.getyLoc() < building[p.getyLoc()].length - 1) {
 
-
                     return true;
                 } else {
                     return false;
