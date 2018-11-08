@@ -2,14 +2,17 @@ package Game;
 import Rooms.MainRoom;
 import Rooms.WinningRoom;
 import Rooms.ChaserRoom;
-public class Board {
-    private MainRoom[][] board;
+import Rooms.Rooms;
+public class Board extends java.lang.Object
+{
+    private Rooms[][] board;
 
-    public Board(MainRoom[][] x) {
+    public Board(Rooms[][] x) {
         board = x;
     }
 
-    public Board(int height, int width) {
+    public Board(int height, int width)
+    {
         this.board = new MainRoom[width][height];
     }
 
@@ -17,14 +20,42 @@ public class Board {
         board[row][column] = x;
     }
 
-    public boolean found() {
-        for (int x = 0; x < board.length; x++) {
-            for (int i = 0; i < board[x].length; i++) {
-                if (board[x][i].getOccupants()[0] != null && board[x][i].getOccupants()[0] != null)
-                    return true;
-                return false;
+    }
+    @Override
+    public String toString()
+{
+    String boardDisplay = "";
+    for(int x = 0; x < this.board.length; x++)
+    {
+        for(int i = 0; i <this.board[x].length; x++)
+        {
+            if(board[x][i].getClass() == ChaserRoom)
+                boardDisplay += "⎦˚~˚⎣";
+            else if(board[x][i].getClass() == MainRoom)
+                boardDisplay += "⊙>";
+            else {
+                boardDisplay += "| |";
+            }
+
+    }
+        boardDisplay += "\n";
+
+    }
+    return boardDisplay;
+}
+    public void edit(Rooms replace, int row, int column)
+    {
+        this.board[row][column] = replace;
+    }
+
+    public void fill (Rooms filler)
+    {
+        for(int x = 0; x < this.board.length;x++)
+        {
+            for( int i =0; i<this.board[x].length;x++)
+            {
+                this.board[x][i] = filler;
             }
         }
-        return false;
     }
 }

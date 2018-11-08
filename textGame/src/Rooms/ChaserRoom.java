@@ -60,6 +60,6 @@ public class ChaserRoom implements Rooms{
                 if(occupant[i] == x)
                     occupant[i] = null;
             }
-return"";
+        return"";
     }
 }
