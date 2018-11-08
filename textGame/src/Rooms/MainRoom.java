@@ -31,10 +31,10 @@ public class MainRoom implements Rooms{
                     x.setxLoc(this.xLoc);
                     x.setyLoc(this.yLoc);
                     occupant[i] = x;
-                    return "";
+                    return " ";
                 }
             }
-            return "";
+            return " ";
         }
 
         /**

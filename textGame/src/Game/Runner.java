@@ -6,6 +6,7 @@ import People.Chaser;
 import Rooms.MainRoom;
 import Rooms.WinningRoom;
 import Rooms.ChaserRoom;
+import Game.Board;
 public class Runner {
 
 
@@ -17,6 +18,10 @@ public class Runner {
             String turkeyName = "";
             MainRoom[][] building = new MainRoom[5][5];
             ChaserRoom[][] turkeyRoom = new ChaserRoom[5][5];
+//            Board map = new Board(building,turkeyRoom);
+//            map.addRoom(5,5,building[0][0]);
+//            map.fill(building[0][0]);
+//            System.out.println(map.toString());
 
             //Fill the building with normal rooms
             for (int x = 0; x<building.length; x++)
@@ -28,7 +33,7 @@ public class Runner {
             }
 
             //Create a random winning room.
-            building[5][5] = new WinningRoom(5,5);
+           //building[5][5] = new WinningRoom(5,5);
             Scanner input = new Scanner(System.in);
             System.out.println("Enter your name");
             playerName = input.nextLine();
@@ -36,7 +41,7 @@ public class Runner {
             turkeyName = input.nextLine();
             //Setup player 1 and the input scanner
             Person player = new Person(playerName, 0,0);
-            Chaser turkey = new Chaser(turkeyName,0,4);
+            Chaser turkey = new Chaser(turkeyName,0,1);
 
             building[0][0].enterRoom(player);
             Scanner in = new Scanner(System.in);
@@ -47,6 +52,8 @@ public class Runner {
                 if(validMove(move, player, building))
                 {
                     System.out.println("Your coordinates: row = " + player.getxLoc() + " col = " + player.getyLoc());
+                    System.out.println("The turkey was located at " +turkey.getxLoc() +","+turkey.getyLoc());
+
                     System.out.println(turkeyName + " moved 1 space " +turkeyRoom[turkey.getxLoc()][turkey.getyLoc()].enterRoom(turkey, turkeyRoom));
                 }
                 else {

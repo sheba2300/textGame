@@ -5,56 +5,58 @@ import Rooms.ChaserRoom;
 import Rooms.Rooms;
 public class Board extends java.lang.Object
 {
-    private Rooms[][] board;
+    private Rooms[][] boardOne;
+    private Rooms[][] boardTwo;
+    private Rooms[][] finalBoard;
 
-    public Board(Rooms[][] x) {
-        board = x;
-    }
 
-    public Board(int height, int width)
+    public Board(Rooms[][] main, Rooms[][] chase)
     {
-        this.board = new MainRoom[width][height];
+        boardOne = main;
+        boardTwo = chase;
     }
 
-    public void addRoom(int row, int column, MainRoom x) {
-        board[row][column] = x;
+  
+    public void addRoom(int row, int column, MainRoom x)
+    {
+       finalBoard[row][column] = x;
     }
 
-    }
+
     @Override
     public String toString()
 {
-    String boardDisplay = "";
-    for(int x = 0; x < this.board.length; x++)
+    String finalBoardDisplay = "";
+    for(int x = 0; x < finalBoard.length; x++)
     {
-        for(int i = 0; i <this.board[x].length; x++)
+        for(int i = 0; i <finalBoard[x].length; x++)
         {
-            if(board[x][i].getClass() == ChaserRoom)
-                boardDisplay += "⎦˚~˚⎣";
-            else if(board[x][i].getClass() == MainRoom)
-                boardDisplay += "⊙>";
+            if(boardOne[x][i].getOccupants()[0] != null ||boardOne[x][i].getOccupants()[1] != null)
+                finalBoardDisplay += "⎦˚~˚⎣";
+            else if(boardTwo[x][i].getOccupants()[0] != null ||boardTwo[x][i].getOccupants()[1] != null)
+                finalBoardDisplay += "⊙>";
             else {
-                boardDisplay += "| |";
+                finalBoardDisplay += "| |";
             }
 
     }
-        boardDisplay += "\n";
+        finalBoardDisplay += "\n";
 
     }
-    return boardDisplay;
+    return finalBoardDisplay;
 }
     public void edit(Rooms replace, int row, int column)
     {
-        this.board[row][column] = replace;
+        this.finalBoard[row][column] = replace;
     }
 
     public void fill (Rooms filler)
     {
-        for(int x = 0; x < this.board.length;x++)
+        for(int x = 0; x < finalBoard.length;x++)
         {
-            for( int i =0; i<this.board[x].length;x++)
+            for( int i =0; i<this.finalBoard[x].length;x++)
             {
-                this.board[x][i] = filler;
+                this.finalBoard[x][i] = filler;
             }
         }
     }
