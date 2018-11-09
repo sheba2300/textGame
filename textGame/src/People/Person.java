@@ -15,7 +15,7 @@ public  class Person extends Characters{
     }
     public String toString()
     {
-        return "  ⎦˚~˚⎣  ";
+        return "⎦˚~˚⎣";
     }
 
 }

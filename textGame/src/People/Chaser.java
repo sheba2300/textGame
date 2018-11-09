@@ -81,6 +81,6 @@ public class Chaser extends Characters
     }
     public String toString()
     {
-        return " ᕙ(`▽´)ᕗ ";
+        return "|`▽´|";
     }
 }

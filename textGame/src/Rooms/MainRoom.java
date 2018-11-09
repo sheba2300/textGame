@@ -69,7 +69,7 @@ public class MainRoom implements Rooms{
             if(occupant[x]!= null)
                 return occupant[x].toString();
         }
-        return "  |    |  ";
+        return " |  | ";
 
     }
     }

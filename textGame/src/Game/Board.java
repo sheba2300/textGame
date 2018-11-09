@@ -6,8 +6,28 @@ public class Board extends java.lang.Object
 {
 
     private Rooms[][] finalBoard;
-    private String[][] pattern = new String[5][5];
+    private String[][] pattern;
+    public Board(int width, int height)
+    {
+        this.finalBoard = new Rooms[height][width];
+        for (int x = 0; x<finalBoard.length; x++)
+        {
+            for (int y = 0; y <finalBoard[x].length; y++)
+            {
+                finalBoard[x][y] = new MainRoom(x,y);
 
+            }
+        }
+
+    }
+    public Rooms getRoom( int row, int col)
+    {
+        return finalBoard[row][col];
+    }
+    public void setRoom(Rooms x, int row, int col)
+    {
+        finalBoard[row][col] = x;
+    }
     public Board(MainRoom[][] x)
     {
         finalBoard = x;

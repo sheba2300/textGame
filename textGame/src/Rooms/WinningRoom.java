@@ -34,6 +34,6 @@ public class WinningRoom extends MainRoom
 
     public String toString()
     {
-        return " ★★★  ";
+        return "|★|";
     }
 }

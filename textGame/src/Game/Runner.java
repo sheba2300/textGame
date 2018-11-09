@@ -17,24 +17,19 @@ public class Runner {
         {
             String playerName = "";
             String turkeyName = "";
+            String mode = "";
             String action;
-            MainRoom[][] building = new MainRoom[5][5];
+           // MainRoom[][] building = new MainRoom[5][5];
 
             //Fill the building with normal rooms
-            for (int x = 0; x<building.length; x++)
-            {
-                for (int y = 0; y < building[x].length; y++)
-                {
-                    building[x][y] = new MainRoom(x,y);
-
-                }
-            }
 
 
 
             //Create a random winning room.
-            building[4][3] = new WinningRoom(4,3);
             Scanner input = new Scanner(System.in);
+            System.out.println("Would you like to play the default game or make a custom game?");
+            mode = input.nextLine();
+            building[4][3] = new WinningRoom(4,3);
             System.out.println("Enter your name");
             playerName = input.nextLine();
             System.out.println("Enter the name of the turkey that will be chasing you.");
