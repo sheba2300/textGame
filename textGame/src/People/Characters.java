@@ -1,3 +1,4 @@
+// Sheba Sow
 package People;
 public class Characters {
     private String firstName,type;
