@@ -1,7 +1,5 @@
 package Game;
 import Rooms.MainRoom;
-import Rooms.WinningRoom;
-import Rooms.ChaserRoom;
 import Rooms.Rooms;
 public class Board extends java.lang.Object
 {

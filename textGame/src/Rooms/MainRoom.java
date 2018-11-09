@@ -4,7 +4,7 @@ import People.Person;
 import People.Characters;
 
 public class MainRoom implements Rooms{
-    Person[] occupant = new Person[2];
+    Characters[] occupant = new Characters[2];
 
         int xLoc,yLoc;
 
@@ -21,27 +21,26 @@ public class MainRoom implements Rooms{
          * Method controls the results when a person enters this room.
          * @param x the Person entering
          */
-        public String enterRoom(Person x)
+        public void enterRoom(Characters x)
         {
-            System.out.println("Now where did the turkey go....");
-            for(int i = 0; i<occupant.length;i++)
-            {
-                if(occupant[i] == null || occupant[i] == x)
-                {
+
+            for (int i = 0; i < occupant.length; i++) {
+                if (occupant[i] == null || occupant[i] == x) {
                     x.setxLoc(this.xLoc);
                     x.setyLoc(this.yLoc);
                     occupant[i] = x;
-                    return "";
+                    return;
                 }
+
             }
-            return "";
+            return;
         }
 
         /**
          * Removes the player from the room.
          * @param x
          */
-        public void leaveRoom(Person x)
+        public void leaveRoom(Characters x)
         {
             for(int i =0; i< occupant.length; i++)
             {
@@ -51,8 +50,11 @@ public class MainRoom implements Rooms{
         }
         public static boolean found(Characters[] occupant)
         {
-            if(occupant[0] != null && occupant[1] != null)
+            if((occupant[0] != null && occupant[1] != null)) {
+                System.out.println("oof");
+
                 return true;
+            }
             return false;
         }
 

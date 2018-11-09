@@ -13,7 +13,7 @@ public class WinningRoom extends MainRoom
      * Triggers the game ending conditions.
      * @param x the Person entering
      */
-    @Override
+
     public String enterRoom(Person x) {
         return("You won, Congrats!");
     }
