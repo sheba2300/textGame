@@ -15,10 +15,9 @@ public class Runner {
             String playerName = "";
             String turkeyName = "";
             MainRoom[][] building = new MainRoom[5][5];
-//            Board map = new Board(building,turkeyRoom);
-//            map.addRoom(5,5,building[0][0]);
-//            map.fill(building[0][0]);
-//            System.out.println(map.toString());
+            Board map = new Board(building,5,5);
+            map.fill("| |");
+            System.out.println(map.toString());
 
             //Fill the building with normal rooms
             for (int x = 0; x<building.length; x++)
@@ -39,8 +38,8 @@ public class Runner {
             System.out.println("Enter the name of the turkey that will be chasing you.");
             turkeyName = input.nextLine();
             //Setup player 1 and the input scanner
-            Person player = new Person(playerName, 0,0);
-            Chaser turkey = new Chaser(turkeyName,2,2);
+            Person player = new Person(playerName, 0,0,"person");
+            Chaser turkey = new Chaser(turkeyName,2,2,"chaser");
 
             building[0][0].enterRoom(player);
             building[2][2].enterRoom(turkey);

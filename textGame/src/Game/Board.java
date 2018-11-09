@@ -3,22 +3,16 @@ import Rooms.MainRoom;
 import Rooms.Rooms;
 public class Board extends java.lang.Object
 {
-    private Rooms[][] boardOne;
-    private Rooms[][] boardTwo;
+
     private Rooms[][] finalBoard;
+    private String[][] pattern = new String[5][5];
 
-
-    public Board(Rooms[][] main, Rooms[][] chase)
+    public Board(MainRoom[][] x, int height, int width)
     {
-        boardOne = main;
-        boardTwo = chase;
+        finalBoard = x;
+        finalBoard = new Rooms[width][height];
     }
 
-  
-    public void addRoom(int row, int column, MainRoom x)
-    {
-       finalBoard[row][column] = x;
-    }
 
 
     @Override
@@ -27,11 +21,11 @@ public class Board extends java.lang.Object
     String finalBoardDisplay = "";
     for(int x = 0; x < finalBoard.length; x++)
     {
-        for(int i = 0; i <finalBoard[x].length; x++)
+        for(int i = 0; i <finalBoard[x].length; i++)
         {
-            if(boardOne[x][i].getOccupants()[0] != null ||boardOne[x][i].getOccupants()[1] != null)
+            if(finalBoard[x][i].getOccupants()[0].getType().equals("person") || finalBoard[x][i].getOccupants()[1].getType().equals("person"))
                 finalBoardDisplay += "⎦˚~˚⎣";
-            else if(boardTwo[x][i].getOccupants()[0] != null ||boardTwo[x][i].getOccupants()[1] != null)
+            else if(finalBoard[x][i].getOccupants()[0].getType().equals("chaser") || finalBoard[x][i].getOccupants()[1].getType().equals("chaser"))
                 finalBoardDisplay += "⊙>";
             else {
                 finalBoardDisplay += "| |";
@@ -43,19 +37,19 @@ public class Board extends java.lang.Object
     }
     return finalBoardDisplay;
 }
-    public void edit(Rooms replace, int row, int column)
+    public void edit(String replace, int row, int column)
     {
-        this.finalBoard[row][column] = replace;
+        pattern[row][column] = replace;
     }
 
-    public void fill (Rooms filler)
+    public void fill (String filler)
     {
-        for(int x = 0; x < finalBoard.length;x++)
-        {
-            for( int i =0; i<this.finalBoard[x].length;x++)
-            {
-                this.finalBoard[x][i] = filler;
-            }
+        for(int x = 0; x < pattern.length;x++)
+         {
+            for( int i =0; i<pattern[x].length;i++)
+             {
+                 pattern[x][i] = filler;
+             }
         }
     }
 }

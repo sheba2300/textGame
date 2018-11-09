@@ -1,12 +1,13 @@
 package People;
 public class Characters {
-    private String firstName;
+    private String firstName,type;
     private int xLoc, yLoc;
 
 
-    public Characters (String firstName,int xPos, int yPos)
+    public Characters (String firstName,int xPos, int yPos, String type)
     {
         this.firstName = firstName;
+        this.type = type;
         xLoc = xPos;
         yLoc = yPos;
     }
@@ -29,6 +30,10 @@ public class Characters {
     public String getFirstName() {
         return firstName;
     }
+    public String getType() {
+        return type;
+    }
+
 }
 
 

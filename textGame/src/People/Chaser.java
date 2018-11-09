@@ -4,21 +4,22 @@ import Rooms.MainRoom;
 
 public class Chaser extends Characters
 {
-    private String firstName;
-    private int xLoc;
-    private int yLoc;
-    public Chaser(String firstName, int xLoc, int yLoc)
+    private String firstName, type;
+    private int xLoc, yLoc;
+    public Chaser (String firstName, int xLoc, int yLoc, String type)
     {
-        super(firstName, xLoc,yLoc);
+        super(firstName, xLoc,yLoc, type);
         this.xLoc = xLoc;
         this.yLoc = yLoc;
         this.firstName = firstName;
+        this.type = type;
     }
+
     public String getAction(Chaser x, MainRoom[][] y)
     {
         String turkeyAction;
         int chance = 0;
-        chance = (int) Math.floor(Math.random() * 4)+1;
+        chance = (int) (Math.floor(Math.random() * 4))+1;
         System.out.println(chance);
         if (chance == 1) {
             if (validMove("n", x,y)) {
