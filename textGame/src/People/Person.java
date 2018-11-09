@@ -12,6 +12,9 @@ public  class Person extends Characters{
         this.firstName = firstName;
         this.type = type;
     }
-
+    public String toString()
+    {
+        return " ⎦˚~˚⎣ ";
+    }
 
 }

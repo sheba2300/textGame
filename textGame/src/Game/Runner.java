@@ -5,6 +5,8 @@ import People.Person;
 import People.Chaser;
 import Rooms.MainRoom;
 import Rooms.Rooms;
+import People.Characters;
+import Rooms.WinningRoom;
 public class Runner {
 
 
@@ -14,6 +16,7 @@ public class Runner {
         {
             String playerName = "";
             String turkeyName = "";
+            String action;
             MainRoom[][] building = new MainRoom[5][5];
 
             //Fill the building with normal rooms
@@ -25,19 +28,17 @@ public class Runner {
 
                 }
             }
-//            Board map = new Board(building,5,5);
-//            map.fill("| |");
-//            System.out.println(map.toString());
+
 
 
             //Create a random winning room.
-           //building[5][5] = new WinningRoom(5,5);
+            building[4][4] = new WinningRoom(4,4);
             Scanner input = new Scanner(System.in);
             System.out.println("Enter your name");
             playerName = input.nextLine();
             System.out.println("Enter the name of the turkey that will be chasing you.");
             turkeyName = input.nextLine();
-            System.out.println("Get out of the forest before " + turkeyName + " the turkey finds you");
+            System.out.println("Get out of the forest before " + turkeyName + " the turkey finds you. The exit is located at 4,4");
 
             //Setup player 1 and the input scanner
             Person player = new Person(playerName, 0,0,"person");
@@ -45,7 +46,9 @@ public class Runner {
 
             building[0][0].enterRoom(player);
             building[2][2].enterRoom(turkey);
-
+            Board map = new Board(building);
+            map.fill("| |");
+            System.out.println(map.toString());
             Scanner in = new Scanner(System.in);
             while(gameOn)
             {
@@ -55,7 +58,23 @@ public class Runner {
                 {
                     System.out.println("Your are located at " + player.getxLoc() + ", " + player.getyLoc());
                     building[turkey.getxLoc()][turkey.getyLoc()].leaveRoom(turkey);
-                  System.out.println(turkey.getFirstName()+ " moved 1 space " + turkey.getAction(turkey,building,player));
+                    action = turkey.getAction(turkey,building);
+                    if(validMove(action,turkey, building))
+                    {
+                        if(action.equals("n"))
+                        System.out.println(turkey.getFirstName()+ " moved 1 space north");
+                        else if(action.equals("s"))
+                            System.out.println(turkey.getFirstName()+ " moved 1 space south");
+                        else if(action.equals("e"))
+                            System.out.println(turkey.getFirstName()+ " moved 1 space east");
+                        else
+                            System.out.println(turkey.getFirstName()+ " moved 1 space west");
+                    }
+                    else
+                    {
+                        System.out.println("the turkey did not move");
+                    }
+
                     System.out.println(turkey.getFirstName() + " is located at " +turkey.getxLoc() +","+turkey.getyLoc());
                     building[turkey.getxLoc()][turkey.getyLoc()].enterRoom(turkey);
 
@@ -66,7 +85,7 @@ public class Runner {
 
                 if (building[player.getxLoc()][player.getyLoc()].found(building[player.getxLoc()][player.getyLoc()].getOccupants()))
                    gameOff();
-
+                System.out.println(map.toString());
             }
             in.close();
 
@@ -79,7 +98,7 @@ public class Runner {
          * @param building the 2D array of rooms
          * @return
          */
-            public static boolean validMove(String move, Person p, Rooms[][] building) {
+            public static boolean validMove(String move, Characters p, Rooms[][] building) {
             move = move.toLowerCase().trim();
             switch (move) {
                 case "n":

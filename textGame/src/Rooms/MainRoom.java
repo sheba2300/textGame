@@ -51,13 +51,20 @@ public class MainRoom implements Rooms{
         public static boolean found(Characters[] occupant)
         {
             if((occupant[0] != null && occupant[1] != null)) {
-                System.out.println("oof");
-
+                System.out.println("You were caught. Game over");
                 return true;
             }
             return false;
         }
+    public String toString()
+    {
+        for(int x = 0; x<occupant.length;x++)
+        {
+            if(occupant[x]!= null)
+                return occupant[x].toString();
+        }
+        return " | | ";
 
-
+    }
     }
 

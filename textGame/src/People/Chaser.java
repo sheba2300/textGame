@@ -15,49 +15,27 @@ public class Chaser extends Characters
         this.type = type;
     }
 
-    public String getAction(Chaser x, MainRoom[][] y, Person player)
+    public String getAction(Chaser x, MainRoom[][] y)
     {
         String turkeyAction;
         int chance = 0;
         chance = (int) (Math.floor(Math.random() * 4))+1;
-        System.out.println(chance);
-        if (chance == 1) {
-            if (validMove("n", x,y)) {
-                player.setyLoc(yLoc++);
-                turkeyAction = "north";
-            } else {
-                turkeyAction = "no where";
-            }
-        } else if (chance == 2) {
-            if (validMove("e", x, y)) {
+        if (chance == 1)
+        {
+            return "n";
+        } else if (chance == 2)
+        {
+            return"e";
 
-                player.setxLoc(xLoc++);
-                turkeyAction = "east";
+        } else if (chance == 3)
+        {
+            return"s";
 
+        } else
+            {return "w";
 
-            } else {
-                turkeyAction = "no where";
-
-            }
-        } else if (chance == 3) {
-            if (validMove("s", x, y)) {
-
-                player.setyLoc(yLoc--);
-                turkeyAction = "south";
-            } else {
-                turkeyAction = "no where";
-
-            }
-        } else {
-            if (validMove("w", x, y)) {
-                player.setxLoc(xLoc--);
-                turkeyAction = "west";
-            } else {
-                turkeyAction = "no where";
-
-            }
         }
-        return turkeyAction;
+
     }
     public static boolean validMove(String move, Characters p, MainRoom[][] building) {
 
@@ -99,5 +77,9 @@ public class Chaser extends Characters
         return false;
 
 
+    }
+    public String toString()
+    {
+        return " ⊙> ";
     }
 }
