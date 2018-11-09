@@ -15,9 +15,6 @@ public class Runner {
             String playerName = "";
             String turkeyName = "";
             MainRoom[][] building = new MainRoom[5][5];
-            Board map = new Board(building,5,5);
-            map.fill("| |");
-            System.out.println(map.toString());
 
             //Fill the building with normal rooms
             for (int x = 0; x<building.length; x++)
@@ -28,6 +25,9 @@ public class Runner {
 
                 }
             }
+//            Board map = new Board(building,5,5);
+//            map.fill("| |");
+//            System.out.println(map.toString());
 
 
             //Create a random winning room.
@@ -37,6 +37,8 @@ public class Runner {
             playerName = input.nextLine();
             System.out.println("Enter the name of the turkey that will be chasing you.");
             turkeyName = input.nextLine();
+            System.out.println("Get out of the forest before " + turkeyName + " the turkey finds you");
+
             //Setup player 1 and the input scanner
             Person player = new Person(playerName, 0,0,"person");
             Chaser turkey = new Chaser(turkeyName,2,2,"chaser");
@@ -53,7 +55,7 @@ public class Runner {
                 {
                     System.out.println("Your are located at " + player.getxLoc() + ", " + player.getyLoc());
                     building[turkey.getxLoc()][turkey.getyLoc()].leaveRoom(turkey);
-                  System.out.println(turkey.getFirstName()+ " moved 1 space " + turkey.getAction(turkey,building));
+                  System.out.println(turkey.getFirstName()+ " moved 1 space " + turkey.getAction(turkey,building,player));
                     System.out.println(turkey.getFirstName() + " is located at " +turkey.getxLoc() +","+turkey.getyLoc());
                     building[turkey.getxLoc()][turkey.getyLoc()].enterRoom(turkey);
 
@@ -63,10 +65,11 @@ public class Runner {
                 }
 
                 if (building[player.getxLoc()][player.getyLoc()].found(building[player.getxLoc()][player.getyLoc()].getOccupants()))
-                    gameOn = false;
+                   gameOff();
 
             }
             in.close();
+
         }
 
         /**
@@ -121,5 +124,10 @@ public class Runner {
 return true;
 
         }
+    public static void gameOff()
+    {
+        gameOn = false;
+    }
+
 
 }

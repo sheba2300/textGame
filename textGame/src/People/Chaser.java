@@ -15,7 +15,7 @@ public class Chaser extends Characters
         this.type = type;
     }
 
-    public String getAction(Chaser x, MainRoom[][] y)
+    public String getAction(Chaser x, MainRoom[][] y, Person player)
     {
         String turkeyAction;
         int chance = 0;
@@ -23,8 +23,7 @@ public class Chaser extends Characters
         System.out.println(chance);
         if (chance == 1) {
             if (validMove("n", x,y)) {
-
-                setyLoc(yLoc++);
+                player.setyLoc(yLoc++);
                 turkeyAction = "north";
             } else {
                 turkeyAction = "no where";
@@ -32,7 +31,7 @@ public class Chaser extends Characters
         } else if (chance == 2) {
             if (validMove("e", x, y)) {
 
-                setxLoc(xLoc++);
+                player.setxLoc(xLoc++);
                 turkeyAction = "east";
 
 
@@ -43,7 +42,7 @@ public class Chaser extends Characters
         } else if (chance == 3) {
             if (validMove("s", x, y)) {
 
-                setyLoc(yLoc--);
+                player.setyLoc(yLoc--);
                 turkeyAction = "south";
             } else {
                 turkeyAction = "no where";
@@ -51,7 +50,7 @@ public class Chaser extends Characters
             }
         } else {
             if (validMove("w", x, y)) {
-                setxLoc(xLoc--);
+                player.setxLoc(xLoc--);
                 turkeyAction = "west";
             } else {
                 turkeyAction = "no where";

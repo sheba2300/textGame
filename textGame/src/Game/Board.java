@@ -18,24 +18,25 @@ public class Board extends java.lang.Object
     @Override
     public String toString()
 {
+    System.out.println(finalBoard[0][0].getOccupants()[0].getxLoc());
     String finalBoardDisplay = "";
-    for(int x = 0; x < finalBoard.length; x++)
-    {
-        for(int i = 0; i <finalBoard[x].length; i++)
-        {
-            if(finalBoard[x][i].getOccupants()[0].getType().equals("person") || finalBoard[x][i].getOccupants()[1].getType().equals("person"))
-                finalBoardDisplay += "⎦˚~˚⎣";
-            else if(finalBoard[x][i].getOccupants()[0].getType().equals("chaser") || finalBoard[x][i].getOccupants()[1].getType().equals("chaser"))
-                finalBoardDisplay += "⊙>";
-            else {
-                finalBoardDisplay += "| |";
-            }
+//    for(int x = 0; x < finalBoard.length; x++)
+//    {
+//        for(int i = 0; i <finalBoard[x].length; i++)
+//        {
+//            if(finalBoard[x][i].getOccupants()[0].getType().equals("person") || finalBoard[x][i].getOccupants()[1].getType().equals("person"))
+//                finalBoardDisplay += "⎦˚~˚⎣";
+//            else if(finalBoard[x][i].getOccupants()[0].getType().equals("chaser") || finalBoard[x][i].getOccupants()[1].getType().equals("chaser"))
+//                finalBoardDisplay += "⊙>";
+//            else {
+//                finalBoardDisplay += "| |";
+//            }
+//
+//    }
+//        finalBoardDisplay += "\n";
 
-    }
-        finalBoardDisplay += "\n";
 
-    }
-    return finalBoardDisplay;
+    return "oof";
 }
     public void edit(String replace, int row, int column)
     {
