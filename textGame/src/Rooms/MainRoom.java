@@ -58,12 +58,17 @@ public class MainRoom implements Rooms{
         }
     public String toString()
     {
+        if((occupant[0] != null && occupant[1] != null)) {
+            return "(҂◡_◡) ᕤ";
+
+        }
+
         for(int x = 0; x<occupant.length;x++)
         {
             if(occupant[x]!= null)
                 return occupant[x].toString();
         }
-        return " | | ";
+        return "  |    |  ";
 
     }
     }

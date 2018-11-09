@@ -31,5 +31,8 @@ public class WinningRoom extends MainRoom
         Runner.gameOff();
     }
 
-
+    public String toString()
+    {
+        return "  (✿◠‿◠)  ";
+    }
 }

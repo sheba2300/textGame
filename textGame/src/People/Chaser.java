@@ -80,6 +80,6 @@ public class Chaser extends Characters
     }
     public String toString()
     {
-        return " ⊙> ";
+        return " ᕙ(`▽´)ᕗ ";
     }
 }
