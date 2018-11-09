@@ -39,7 +39,7 @@ public class Runner {
             playerName = input.nextLine();
             System.out.println("Enter the name of the turkey that will be chasing you.");
             turkeyName = input.nextLine();
-            System.out.println("Get out of the forest before " + turkeyName + " the turkey finds you. The exit is located at 4,4 :(✿◠‿◠)");
+            System.out.println("Get out of the forest before " + turkeyName + " the turkey finds you. The exit is located at 4,4 :★★★");
 
             //Setup player 1 and the input scanner
             Person player = new Person(playerName, 0,0,"person");
