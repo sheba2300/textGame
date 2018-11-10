@@ -30,6 +30,7 @@ public class WinningRoom extends MainRoom
         x.setyLoc(this.yLoc);
         System.out.println("You you made it out the forest, Congrats!");
         Runner.gameOff();
+        Runner.makeExpert();
     }
 
     public String toString()
