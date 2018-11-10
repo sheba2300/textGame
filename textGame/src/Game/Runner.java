@@ -148,7 +148,7 @@ public class Runner {
         return true;
 
     }
-//we
+
     public static void defaultGame(String playerName, String turkeyName)
     {
         MainRoom[][] building = new MainRoom[5][5];
